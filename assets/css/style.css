@@ -322,6 +322,14 @@ button {
     display: inline-block;
     width: 70%;
   }
+  #clearfix{
+    position:relative
+  }
+  #linea{
+    position:absolute;
+    top:100px;
+    
+    }
 }
 @media screen and (min-width: 700px) {
   input {
@@ -411,8 +419,18 @@ footer a {
   #back-up-btn {
     position: absolute;
     bottom: 0;
-  }  
+  }
+  .clearfix{
+    position:relative
+  }
+  #linea  {
+    position: absolute;
+    left:18rem;
+    top:5rem;
+    width: 50%;
+  }
 }
+
 
 
 @media print {
