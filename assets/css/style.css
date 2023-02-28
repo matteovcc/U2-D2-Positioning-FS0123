@@ -41,18 +41,15 @@ header {
 .btn{
   display: block;
   padding: 15px;
-  background-color: rgb(255 255 255 / 0.3);
+  background-color: rgba(255, 255, 255, 0.8);
   color: blue;
   font-size: 1.5rem;
   border-radius: 10px;
   border: 2px solid #fff;
   margin-block-end: 15px;
-  box-shadow: 0px 6px 15px 0px rgb(0 0 0 / 0.4);
-  line-height: 1;
-  backdrop-filter: blur(10px)
 }
-.btn:nth-child(3) {
-  color: #f7555d;
+#back-up-btn {
+  color: red;
 }
 @media screen and (min-width: 800px) {
   header {
@@ -130,16 +127,15 @@ section {
 }
 
 section h2 {
-  text-align: center;
-  color: #333;
+  position: absolute;
+  color: #d8d4d4;
   font-size: 1.4rem;
   margin-bottom: 1.7rem;
   font-weight: bold;
-  background-color: #a3a3a3;
+  background-color: #7a7676;
   padding: 0px 1em;
   top: -15px;
-  position: absolute;
-  box-shadow: 2px 2px 0px 0px rgb(61, 61, 61);
+  
 }
 
 /* ELEMENTI NEL MAIN - ARTICLE */
@@ -417,7 +413,7 @@ footer a {
   .bottoni{
     top: 15px;
   }  
-  .btn:nth-child(3) {
+  #back-up-btn {
     position: absolute;
     bottom: 0;
   }  
