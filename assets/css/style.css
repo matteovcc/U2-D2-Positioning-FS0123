@@ -1,12 +1,10 @@
-/* IMPOSTAZIONI GENERALI */
-
 body {
   font-family: Poppins, "Helvetica Neue", sans-serif;
   line-height: 1.6;
-  padding: 15px;
+  padding: 16px;
   background-image: url("../img/sfondo.png");
   background-position: center center;
-  position: relative;
+  overflow-x: hidden;
 }
 
 * {
@@ -17,11 +15,62 @@ hr {
   display: none;
 } /* rimuove l'elemento */
 
+/* BUTTON FIXED */
+.social,
+.toTop {
+  line-height: 1;
+  position: fixed;
+  right: -18px;
+  z-index: 999;
+}
+
+.social {
+  top: 16px;
+}
+
+.toTop {
+  bottom: 16px;
+}
+
+@media screen and (max-width: 700px) {
+  .social {
+    top: unset;
+    bottom: 96px;
+  }
+}
+
+.toTop a,
+.social a {
+  color: #f7575e;
+  font-size: 2rem;
+  display: block;
+}
+
+.social a {
+  color: rgb(45, 101, 185);
+}
+
+.social a:first-child {
+  margin-bottom: 1rem;
+}
+
+.toTop .far,
+.social .far {
+  background: #ffffffa1;
+  backdrop-filter: blur(2px);
+  line-height: 0.8;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 10%);
+  padding: 16px;
+  border: 3px solid white;
+}
+
 /* HEADER */
 header {
   background: rgb(0, 160, 198);
   background: linear-gradient(180deg, rgba(0, 160, 198, 1) 0%, rgba(3, 109, 134, 1) 68%);
   text-align: center;
+  text-transform: uppercase;
   font-weight: bold;
   color: white;
   box-shadow: 0 3px 3px #444;
@@ -29,29 +78,8 @@ header {
   padding: 2em 1.5em;
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 10;
 }
-.bottoni{
-  position: fixed;
-  right: -15px;
-  z-index: 2;
-  bottom: 0;
-}
-.btn{
-  display: block;
-  font-size: 1.5rem;
-  padding: 15px;
-  background-color: rgba(255, 255, 255, 0.8);
-  color: blue;
-  border-radius: 10px;
-  border: 2px solid #fff;
-  margin-block-end: 15px;
-}
-#back-up-btn {
-  color: red;
-}
-
-
 @media screen and (min-width: 800px) {
   header {
     padding: 1em;
@@ -114,7 +142,7 @@ main {
   padding: 2em 1em;
   margin-bottom: 1.5em;
 }
-@media screen and (min-width: 700px) and (max-width:1119){
+@media screen and (min-width: 700px) {
   main {
     padding: 2em;
   }
@@ -126,17 +154,18 @@ section {
   margin-bottom: 2em;
   position: relative;
 }
-
 section h2 {
-  position: absolute;
-  color: #d8d4d4;
-  font-size: 1.4rem;
-  margin-bottom: 1.7rem;
+  text-align: center;
+  color: #333;
+  font-size: 2rem;
   font-weight: bold;
-  background-color: #7a7676;
+  text-transform: uppercase;
+  background-color: #a3a3a3;
+  position: absolute;
+  top: -9%;
+  left: 5%;
   padding: 0px 1em;
-  top: -15px;
-  
+  box-shadow: 1px 1px 2px #333;
 }
 
 /* ELEMENTI NEL MAIN - ARTICLE */
@@ -148,23 +177,23 @@ h1 {
   letter-spacing: -0.03em;
   margin-bottom: 0.7em;
 }
-h1 span{
+
+/* SOTTOLINEATURA */
+h1 span {
   position: relative;
-  display: inline-block;
+  z-index: 0;
 }
 
-.clearfix{
-  position:relative;
-}
-#underline{
-  position:absolute;
-  left: 30rem;
-  top: 0;
+h1 img {
+  z-index: -1;
+  position: absolute;
+  top: 80%;
+  left: 0;
+  right: 0;
   width: 100%;
-  opacity: 0.5;
-  display:inline-block;
+  opacity: 0.6;
 }
-
+/* FINE SOTTOLINEATURA */
 p,
 address,
 ul,
@@ -211,25 +240,30 @@ h1 + p {
 @media screen and (min-width: 700px) {
   h1 {
     font-size: 3.6rem;
-  } 
+  }
 }
 
 @media screen and (min-width: 1200px) {
   body {
     line-height: 2;
   }
+
   section {
     border-radius: 20px;
   }
 }
 
-
 .imgLeft {
+  float: left;
   margin-right: 20px;
   border: 4px solid #00a0c6;
   outline: 4px solid #a02571;
   padding: 3px;
-  float: left;
+}
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 ul,
 ol {
@@ -262,6 +296,7 @@ iframe {
     width: 50%;
     margin-inline: -2px;
     vertical-align: middle;
+    margin-block-start: 4rem;
   }
 
   iframe {
@@ -330,14 +365,6 @@ button {
     display: inline-block;
     width: 70%;
   }
-  .clearfix{
-    position:relative;
-  }
-  #underline{
-    position:absolute;
-    left:36rem;
-    
-    }
 }
 @media screen and (min-width: 700px) {
   input {
@@ -358,22 +385,19 @@ aside h2 {
   margin-bottom: 1em;
 }
 aside div {
-  position: relative;
   background-color: #e3e3e3;
   border: 1px solid #c3c3c3;
   margin-bottom: 1em;
   padding: 1em;
+  position: relative;
 }
-aside div p:nth-child(3){
-  text-align: end;
-}
-aside div .fa-tag{
+
+aside div .fa-tag {
   position: absolute;
-  top: 0;
+  top: 10px;
+  right: 10px;
   font-size: 4rem;
-  right: 0;
-  padding: 10px;
-  color: #cecece;
+  opacity: 0.1;
 }
 
 @media screen and (min-width: 1200px) {
@@ -399,7 +423,6 @@ footer {
   text-align: center;
   font-size: 1.2rem;
 }
-
 @media screen and (min-width: 800px) {
   footer {
     padding: 1em 12em;
@@ -418,31 +441,7 @@ footer a {
     margin-left: auto;
     margin-right: auto;
   }
-  
 }
-
-@media screen and (min-width: 700px) {
-  .bottoni{
-    top: 15px;
-  }  
-  #back-up-btn {
-    position: absolute;
-    bottom: 0;
-  }
-  .clearfix{
-    position:relative;
-  }
-  #linea  {
-    position: absolute;
-    left:1rem;
-    top:8rem;
-    opacity:0.5;
-    width: 40%;
-   
-  }
-}
-
-
 
 @media print {
   body {
